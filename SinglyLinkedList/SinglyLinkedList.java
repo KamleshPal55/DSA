@@ -79,6 +79,47 @@ public class SinglyLinkedList {
 		}
 	}
 
+	public ListNode deleteFirst() {
+		if(head == null) {
+			return null;
+		}
+		ListNode temp = head;
+		head = head.next;
+		temp.next = null;
+		return temp;	// See we are returning temp which is of ListNode type.
+	}
+	public ListNode deleteLast() {
+		if(head == null || head.next == null) {
+			return head;
+		}
+		ListNode current = head;
+		ListNode previous = null;
+		while(current.next != null) {
+			previous = current;
+			current = current.next;
+		}
+		previous.next = null;  //Break the chain
+		return current;
+	}
+
+	//Assuming position is a valid position starting from 1
+	//Update method to return the deleted node
+	public ListNode deleteAt(int position) {
+		if(position ==1) {
+			head = head.next;// node where initially pointed by head will be garbage collected
+			return head;
+		}else {
+			ListNode previous = head;
+			int count = 1;
+			while(count < position-1) {
+				previous = previous.next;
+				count++;
+			}
+			ListNode current = previous.next;
+			previous.next = current.next;
+			return current;
+		}
+	}
 
 	public static void main(String[] args) {
 		SinglyLinkedList sll = new SinglyLinkedList();
@@ -104,8 +145,15 @@ public class SinglyLinkedList {
 		sll.insertAt(2, 5);
 		sll.insertAt(1, 2);
 		sll.insertAt(2, 4);
-		sll.insertAt(5, 7);
+		//sll.insertAt(5, 7);
 
+		sll.display();
+
+		//System.out.println(sll.deleteFirst().data);
+		//System.out.println(sll.deleteFirst().data);
+		//System.out.println(sll.deleteLast().data);
+		//System.out.println(sll.deleteLast().data);
+		System.out.println(sll.deleteAt(4).data);
 		sll.display();
 		System.out.println("Length is - " + sll.getLength());
 
