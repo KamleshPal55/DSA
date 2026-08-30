@@ -121,6 +121,22 @@ public class SinglyLinkedList {
 		}
 	}
 
+	//Search an element
+	public boolean findElement(ListNode head, int searchKey) {
+		if(head == null) {
+			return false;
+		}
+		ListNode current = head;
+		while(current != null) {
+			if(current.data == searchKey) {
+				return true;
+			}
+			current = current.next;
+		}
+		return false;
+	}
+
+
 	public static void main(String[] args) {
 		SinglyLinkedList sll = new SinglyLinkedList();
 //		sll.head = new ListNode(10); // head is assigned the newly created list node
@@ -153,10 +169,14 @@ public class SinglyLinkedList {
 		//System.out.println(sll.deleteFirst().data);
 		//System.out.println(sll.deleteLast().data);
 		//System.out.println(sll.deleteLast().data);
-		System.out.println(sll.deleteAt(4).data);
-		sll.display();
+		//System.out.println(sll.deleteAt(4).data);
+		//sll.display();
+
 		System.out.println("Length is - " + sll.getLength());
-
-
+		if(sll.findElement(sll.head, 15)) {
+			System.out.println("Search key found!");
+		}else {
+			System.out.println("Search key not found!");
+		}
 	}
 }
