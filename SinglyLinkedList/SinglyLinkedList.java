@@ -1,11 +1,11 @@
 package SinglyLinkedList;
 
 public class SinglyLinkedList {
-	private ListNode head;
+	public static ListNode head;
 
-	private static class ListNode{
-		private int data;  //Generic Type
-		private ListNode next;
+	public static class ListNode{
+		public int data;  //Generic Type
+		public ListNode next;
 
 		public ListNode(int data) {
 			this.data = data;

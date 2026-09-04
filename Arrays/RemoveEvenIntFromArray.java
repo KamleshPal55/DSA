@@ -1,5 +1,7 @@
 /*
  * I/P =>{3,2,4,7,10,6,5}  O/P => {3,7,5}
+ *
+ * To solve this problem we created new array of size of no of odd elements in the array.
  */
 
 package Arrays;
